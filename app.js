@@ -6,7 +6,12 @@
  * D = 2
  * Dis = 3
  * E = 4
- * ...
+ * F = 5
+ * Fis = 6
+ * G = 7
+ * Gis = 8
+ * A = 9
+ * Ais = 10
  * B = 11
  * 
  * the minors:
@@ -14,7 +19,13 @@
  * Cism = 13
  * Dm =  14
  * Dism = 15
- * ...
+ * Em = 16
+ * Fm = 17
+ * Fism = 18
+ * Gm = 19
+ * Gism = 20
+ * Am = 21
+ * Aism = 22
  * Bm = 23
  */
 
@@ -43,34 +54,136 @@ var chords = [
     [10, 0, 12, 2, 14, 5, 7, 19],
     [11, 1, 13, 3, 15, 6, 8, 20]
 ];
-//Cism E B Fm
-chordsequence = [14, 5, 0, 18];
+chordsequence = [];
 easychords = [];
 
-for(i = 0; i < 11; i++){
-    if(
-        chords[i].includes(chordsequence[0]) &&
-        chords[i].includes(chordsequence[1]) &&
-        chords[i].includes(chordsequence[2]) 
-    ) {
-        console.log(easychords.push(i));
-    }
-}
+function simplify(){
+    //right now only supports 4 chords in a sequence, need to fix later
+    let fretsFourChords = [];
+    let fretsThreeChords = [];
+    let fretsTwoChords = [];
+    let fretsOneChord = [];
+    for(i = 0; i < 12; i++){
+        let containedchords = [];
+        for(chord in chordsequence){
+            if (chords[i].includes(chordsequence[chord])){
+                containedchords.push(chordsequence[chord]);
+            }
+        }
 
-console.log(easychords);
+        if(containedchords.length > 3){
+            fretsFourChords.push(i);
+        }
+        if(containedchords.length > 2){
+            fretsThreeChords.push(i);
+        }
+        if(containedchords.length > 1){
+            fretsTwoChords.push(i);
+        }
+        if(containedchords.length > 0){
+            fretsOneChord.push(i);
+        }
+        console.log("With Capo on Fret " +i+ " you can play " +containedchords.length+ " chords with an easy shape. They are: " +containedchords);
+    }
+    console.log("Four easy chords on frets: " +fretsFourChords);
+    console.log("Three easy chords on frets: " +fretsThreeChords);
+    console.log("Two easy chords on frets: " +fretsTwoChords);
+    console.log("One easy chord on frets: " +fretsOneChord);
+}
 
 function createButton(text){
-    var btn = document.createElement('button');
-    var chordarea = document.getElementById("chordarea");
-    btn.innerHTML = text;
-    btn.setAttribute("type", "button");
-    btn.setAttribute("onclick", "removeElement('"+text+"')");
-    btn.setAttribute("id", text);
-    chordarea.appendChild(btn) //OR insert it
-}
-
+    if(chordsequence.length < 4){
+        var btn = document.createElement('button');
+        var chordarea = document.getElementById("chordarea");
+        btn.innerHTML = text;
+        btn.setAttribute("type", "button");
+        btn.setAttribute("onclick", "removeElement('"+text+"')");
+        btn.setAttribute("id", text);
+        chordarea.appendChild(btn);
+        //THIS IS BAD v
+        //refactor later
+        if(text=="C"){
+            chordsequence.push(0)
+        }
+        if(text=="Cis"){
+            chordsequence.push(1)
+        }
+        if(text=="D"){
+            chordsequence.push(2)
+        }
+        if(text=="Dis"){
+            chordsequence.push(3)
+        }
+        if(text=="E"){
+            chordsequence.push(4)
+        }
+        if(text=="F"){
+            chordsequence.push(5)
+        }
+        if(text=="Fis"){
+            chordsequence.push(6)
+        }
+        if(text=="G"){
+            chordsequence.push(7)
+        }
+        if(text=="Gis"){
+            chordsequence.push(8)
+        }
+        if(text=="A"){
+            chordsequence.push(9)
+        }
+        if(text=="Ais"){
+            chordsequence.push(10)
+        }
+        if(text=="B"){
+            chordsequence.push(11)
+        }
+        if(text=="Cm"){
+            chordsequence.push(12)
+        }
+        if(text=="Cism"){
+            chordsequence.push(13)
+        }
+        if(text=="Dm"){
+            chordsequence.push(14)
+        }
+        if(text=="Dism"){
+            chordsequence.push(15)
+        }
+        if(text=="Em"){
+            chordsequence.push(16)
+        }
+        if(text=="Fm"){
+            chordsequence.push(17)
+        }
+        if(text=="Fism"){
+            chordsequence.push(18)
+        }
+        if(text=="Gm"){
+            chordsequence.push(19)
+        }
+        if(text=="Gism"){
+            chordsequence.push(20)
+        }
+        if(text=="Am"){
+            chordsequence.push(21)
+        }
+        
+        if(text=="Aism"){
+            chordsequence.push(22)
+        }
+        if(text=="Bm"){
+            chordsequence.push(23)
+        }
+        console.log(chordsequence);
+    }
+}    
+        
+    
 function removeElement(elementId) {
     // Removes an element from the document
     var element = document.getElementById(elementId);
     element.parentNode.removeChild(element);
+    chordsequence.pop();
+    console.log(chordsequence);
 }
