@@ -83,7 +83,7 @@ function simplify(){
         if(containedchords.length > 0){
             fretsOneChord.push(i);
         }
-        console.log("With Capo on Fret " +i+ " you can play " +containedchords.length+ " chords with an easy shape. They are: " +containedchords);
+        console.log("With Capo on Fret " +i+ " you can play " +containedchords.length+ " chord(s) with an easy shape. They are: " +containedchords);
     }
     console.log("Four easy chords on frets: " +fretsFourChords);
     console.log("Three easy chords on frets: " +fretsThreeChords);
