@@ -101,7 +101,7 @@ function simplify(){
             button2.innerHTML = easychords[1];
             button3.innerHTML = easychords[2];
             button4.innerHTML = easychords[3];
-            newDiv.innerHTML = containedchords.length+ " easychords on Fret " +i+ ": ";
+            newDiv.innerHTML = containedchords.length+ " chords on Fret " +i+ ": ";
             newDiv.appendChild(button1);
             newDiv.appendChild(button2);
             newDiv.appendChild(button3);
