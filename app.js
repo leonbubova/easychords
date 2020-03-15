@@ -32,30 +32,30 @@
 /**
  * chords is an array of arrays filled with chords (who wouldve guessed).
  * chords[0] is filled with all the chords you can easily play open on guitar
- * for chords[0] this would mean [0, 2, 14, 4, 16, 7, 9, 21] or translated
+ * for chords[0] this would mean [0, 2, 14, 4, 16, 5, 17, 7, 9, 21] or translated
  * into real chords:
- * [C, D, Dm, E, Em, G, A, Am]
+ * [C, D, Dm, E, Em, F, Fm, G, A, Am]
  * chords[1] is filled with the same chords, but transposed one half tone
  * up, as if you would use a capodaster on that fret.
  * Meaning if you look at chords[4] you would get every chord that you can 
  * play with the capodaster on the 4th fret. so chord[4][0] would be an E
  */
 var chords = [
-    [0, 2, 14, 4, 16, 7, 9, 21],
-    [1, 3, 15, 5, 17, 8, 10, 22],
-    [2, 4, 16, 6, 18, 9, 11, 23],
-    [3, 5, 17, 7, 19, 10, 0, 12],
-    [4, 6, 18, 8, 20, 11, 1, 13],
-    [5, 7, 19, 9, 21, 0, 2, 14],
-    [6, 8, 20, 10, 22, 1, 3, 15],
-    [7, 9, 21, 11, 23, 2, 4, 16],
-    [8, 10, 22, 0, 12, 3, 5, 17],
-    [9, 11, 23, 1, 13, 4, 6, 18],
-    [10, 0, 12, 2, 14, 5, 7, 19],
-    [11, 1, 13, 3, 15, 6, 8, 20]
+    [0, 2, 14, 4, 16, 5, 17, 7, 9, 21],
+    [1, 3, 15, 5, 17, 6, 18, 8, 10, 22],
+    [2, 4, 16, 6, 18, 7, 19, 9, 11, 23],
+    [3, 5, 17, 7, 19, 8, 20, 10, 0, 12],
+    [4, 6, 18, 8, 20, 9, 21, 11, 1, 13],
+    [5, 7, 19, 9, 21, 10, 22, 0, 2, 14],
+    [6, 8, 20, 10, 22, 11, 23, 1, 3, 15],
+    [7, 9, 21, 11, 23, 0, 12, 2, 4, 16],
+    [8, 10, 22, 0, 12, 1, 13, 3, 5, 17],
+    [9, 11, 23, 1, 13, 2, 14, 4, 6, 18],
+    [10, 0, 12, 2, 14, 3, 15, 5, 7, 19],
+    [11, 1, 13, 3, 15, 4, 16, 6, 8, 20]
 ];
+easychordsBase = ["C", "D", "Dm", "E", "Em", "F", "Fm", "G", "A", "Am"];
 chordsequence = [];
-easychords = [];
 
 function simplify(){
     //right now only supports 4 chords in a sequence, need to fix later
@@ -64,10 +64,16 @@ function simplify(){
     let fretsTwoChords = [];
     let fretsOneChord = [];
     for(i = 0; i < 12; i++){
+        let easychords = ["null", "null", "null", "null"];
         let containedchords = [];
         for(chord in chordsequence){
             if (chords[i].includes(chordsequence[chord])){
                 containedchords.push(chordsequence[chord]);
+                for(baseChord in chords[i]){
+                    if(chordsequence[chord] == chords[i][baseChord]){
+                        easychords[chord] = easychordsBase[baseChord];
+                    }
+                }
             }
         }
 
@@ -83,7 +89,7 @@ function simplify(){
         if(containedchords.length > 0){
             fretsOneChord.push(i);
         }
-        console.log("With Capo on Fret " +i+ " you can play " +containedchords.length+ " chord(s) with an easy shape. They are: " +containedchords);
+        console.log("With Capo on Fret " +i+ " you can play " +containedchords.length+ " chord(s) with an easy shape. They are: "  +easychords);
     }
     console.log("Four easy chords on frets: " +fretsFourChords);
     console.log("Three easy chords on frets: " +fretsThreeChords);
