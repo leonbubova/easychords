@@ -97,11 +97,14 @@ function simplify(){
             let button2 = document.createElement('button');
             let button3 = document.createElement('button');
             let button4 = document.createElement('button');
+            let text = document.createElement('p');
+            text.style.fontSize = '16px';
             button1.innerHTML = easychords[0];
             button2.innerHTML = easychords[1];
             button3.innerHTML = easychords[2];
             button4.innerHTML = easychords[3];
-            newDiv.innerHTML = containedchords.length+ " chords on Fret " +i+ ": ";
+            text.innerHTML = containedchords.length+ " chords on Fret " +i+ ": ";
+            newDiv.appendChild(text);
             newDiv.appendChild(button1);
             newDiv.appendChild(button2);
             newDiv.appendChild(button3);
