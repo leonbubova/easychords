@@ -90,6 +90,26 @@ function simplify(){
             fretsOneChord.push(i);
         }
         console.log("With Capo on Fret " +i+ " you can play " +containedchords.length+ " chord(s) with an easy shape. They are: "  +easychords);
+        if(containedchords.length >= chordsequence.length - 2){
+            let chordarea = document.getElementById("chordarea");
+            let newDiv = document.createElement('div');
+            let button1 = document.createElement('button');
+            let button2 = document.createElement('button');
+            let button3 = document.createElement('button');
+            let button4 = document.createElement('button');
+            let text = document.createElement('p');
+            text.innerHTML = "Fret " +i+ ": ";
+            button1.innerHTML = easychords[0];
+            button2.innerHTML = easychords[1];
+            button3.innerHTML = easychords[2];
+            button4.innerHTML = easychords[3];
+            newDiv.innerHTML = "Fret " +i+ ": ";
+            newDiv.appendChild(button1);
+            newDiv.appendChild(button2);
+            newDiv.appendChild(button3);
+            newDiv.appendChild(button4);
+            chordarea.appendChild(newDiv);
+        }
     }
     console.log("Four easy chords on frets: " +fretsFourChords);
     console.log("Three easy chords on frets: " +fretsThreeChords);
