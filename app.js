@@ -98,7 +98,7 @@ function simplify(){
             let button3 = document.createElement('button');
             let button4 = document.createElement('button');
             let text = document.createElement('p');
-            text.innerHTML = "Fret " +i+ ": ";
+            //text.innerHTML = "Fret " +i+ ": ";
             button1.innerHTML = easychords[0];
             button2.innerHTML = easychords[1];
             button3.innerHTML = easychords[2];
