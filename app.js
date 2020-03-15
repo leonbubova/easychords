@@ -90,7 +90,7 @@ function simplify(){
             fretsOneChord.push(i);
         }
         console.log("With Capo on Fret " +i+ " you can play " +containedchords.length+ " chord(s) with an easy shape. They are: "  +easychords);
-        if(containedchords.length >= chordsequence.length - 2){
+        if(containedchords.length >= chordsequence.length - 1){
             let chordarea = document.getElementById("chordarea");
             let newDiv = document.createElement('div');
             let button1 = document.createElement('button');
