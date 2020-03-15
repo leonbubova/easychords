@@ -55,6 +55,7 @@ var chords = [
     [11, 1, 13, 3, 15, 4, 16, 6, 8, 20]
 ];
 easychordsBase = ["C", "D", "Dm", "E", "Em", "F", "Fm", "G", "A", "Am"];
+//mergetest
 chordsequence = [];
 
 function simplify(){
