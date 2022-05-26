@@ -40,7 +40,7 @@ function simplify() {
 }
 
 function createButton(text) {
-    if (chordsequence.length < 4) {
+    if (chordsequence.length < 10) {
         var btn = document.createElement('button');
         var chordarea = document.getElementById("chordarea");
         btn.innerHTML = text;
