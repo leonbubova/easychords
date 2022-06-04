@@ -1,70 +1,68 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 *:focus {
-    outline:none !important
+  outline: none !important;
 }
 
-body{
-    background-color: #fab696;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 50px;
+body {
+  background-color: #fab696;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
 }
 
-.header{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 40px;
-    margin-right: 40px;
+.header {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
-.sitetitle{
-    display: inline-block;
+.sitetitle {
+  display: inline-block;
 }
 
-.navigation{
-    float: right;
+.navigation {
+  float: right;
 }
 
-.nav-item{
-    display: inline-block;
-    margin-left: 30px;
+.nav-item {
+  margin-left: 30px;
 }
 
-p{
-    font-size: 22px;
+p {
+  font-size: 22px;
 }
 
-button{
-    border: 1.2px solid black;
-    background-color: #fab696;
-    color: black;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 2px;
+button {
+  border: 1.2px solid black;
+  background-color: #fab696;
+  color: black;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 2px;
 }
 
-.apparea{
-    text-align: center;
-    max-width: 350px;
-    margin: auto;
-
+.apparea {
+  text-align: center;
+  max-width: 350px;
+  margin: auto;
 }
 
-.buttonarea{
-    margin-top: 50px;
+.buttonarea {
+  margin-top: 50px;
 }
 
-.chordarea{
-    margin-top: 50px;
+.chordarea {
+  margin-top: 50px;
 }
 
-.generatearea{
-    margin-top: 50px;
+.generatearea {
+  margin-top: 50px;
 }
